@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+* { -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; }
+body { @apply bg-bg text-ink font-sans; overflow-x: hidden; }
+::selection { background: #3b82f6; color: #0a0e17; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0a0e17; }
+::-webkit-scrollbar-thumb { background: #1e2740; border-radius: 4px; }
+
+@media (pointer: fine) {
+  .cursor-on * { cursor: none !important; }
+}
+.k-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+.a-input {
+  width: 100%;
+  border-radius: 0.6rem;
+  border: 1px solid #1e2740;
+  background: #151d2e;
+  padding: 0.7rem 1rem;
+  color: #e8ecf5;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.a-input:focus { border-color: #3b82f6; }
+.a-input::placeholder { color: #8493b0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .k-cursor { display: none; }
+}
